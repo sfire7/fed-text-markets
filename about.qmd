@@ -1,0 +1,17 @@
+---
+title: "About"
+---
+
+# About
+
+I'm a Business Economics student interested in financial markets, macroeconomics, and data-driven analysis.
+
+This website is a place for me to publish blog posts and projects combining economics, coding, and market research.
+
+## Topics I want to write about
+
+- Central bank communication
+- Financial markets
+- Data science in economics
+- Macro and policy analysis
+- Empirical projects

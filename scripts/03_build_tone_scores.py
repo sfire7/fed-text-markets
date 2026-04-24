@@ -28,6 +28,11 @@ def main():
     df["tone_score"] = df["hawkish_count"] - df["dovish_count"]
     df["tone_score_norm"] = df["tone_score"] / df["word_count"].replace(0, 1)
 
+    df = df.sort_values("date").reset_index(drop=True)
+
+    df["tone_score_change"] = df["tone_score"].diff()
+    df["tone_score_norm_change"] = df["tone_score_norm"].diff()
+
     output_path.parent.mkdir(parents=True, exist_ok=True)
     df.to_csv(output_path, index=False)
 

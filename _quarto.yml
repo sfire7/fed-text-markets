@@ -1,0 +1,20 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Delta Point"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+        text: About
+      - href: posts/fed-tone-and-markets.qmd
+        text: First Post
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
