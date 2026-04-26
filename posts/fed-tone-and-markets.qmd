@@ -35,23 +35,48 @@ I then estimated both:
 
 ## Tone distribution
 
-![](../output/figures/tone_score_distribution.png)
+<iframe 
+  src="../output/interactive_figures/tone_score_distribution.html"
+  width="100%" 
+  height="560" 
+  style="border: none;">
+</iframe>
 
 ## Tone over time
 
-![](../output/figures/tone_score_over_time.png)
+<iframe 
+  src="../output/interactive_figures/tone_score_over_time.html"
+  width="100%" 
+  height="560" 
+  style="border: none;">
+</iframe>
 
 ## Baseline tone and 2Y yield change
 
-![](../output/figures/tone_vs_us2yield_fit.png)
+<iframe 
+  src="../output/interactive_figures/tone_vs_us2yield_fit.html"
+  width="100%" 
+  height="560" 
+  style="border: none;">
+</iframe>
 
 ## Baseline tone and S&P 500 return
 
-![](../output/figures/tone_vs_sp500_fit.png)
+<iframe 
+  src="../output/interactive_figures/tone_vs_sp500_fit.html"
+  width="100%" 
+  height="560" 
+  style="border: none;">
+</iframe>
 
 ## Baseline tone and USD index change
 
-![](../output/figures/tone_vs_usd_fit.png)
+<iframe 
+  src="../output/interactive_figures/tone_vs_usd_fit.html"
+  width="100%" 
+  height="560" 
+  style="border: none;">
+</iframe>
 
 # Interpretation
 
