@@ -4,21 +4,21 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "I’m a Business Economics student interested in financial markets, macroeconomics, and data-driven analysis.\nThis website is a place for me to publish blog posts and projects combining economics, coding, and market research.\n\n\n\nCentral bank communication\nFinancial markets\nData science in economics\nMacro and policy analysis\nEmpirical projects"
+    "text": "Delta One Research\n    Markets · Macro · Data Science\nI’m a Business Economics student interested in financial markets, macroeconomics, and data-driven analysis.\nThis website is a place for me to publish blog posts and projects combining economics, coding, and market research."
   },
   {
     "objectID": "about.html#topics-i-want-to-write-about",
     "href": "about.html#topics-i-want-to-write-about",
     "title": "About",
-    "section": "",
-    "text": "Central bank communication\nFinancial markets\nData science in economics\nMacro and policy analysis\nEmpirical projects"
+    "section": "Topics I want to write about",
+    "text": "Topics I want to write about\n\nCentral bank communication\nFinancial markets\nData science in economics\nMacro and policy analysis\nEmpirical projects"
   },
   {
     "objectID": "posts/fed-tone-and-markets.html",
     "href": "posts/fed-tone-and-markets.html",
     "title": "Do Central Bank Statements Move Markets?",
     "section": "",
-    "text": "Central bank communication matters because markets respond not only to policy decisions, but also to how policymakers describe inflation, growth, and risks.\nThis post studies whether the tone of Federal Reserve policy statements is associated with short-term moves in Treasury yields, the US dollar, and equities."
+    "text": "Delta One Research\n    Markets · Macro · Data Science"
   },
   {
     "objectID": "posts/fed-tone-and-markets.html#tone-distribution",
@@ -60,20 +60,27 @@
     "href": "index.html",
     "title": "Home",
     "section": "",
-    "text": "Hello, I’m David Papinashvili, a BSc Business Economics student at the University of Exeter. This site is where I publish data-driven blog posts and small research projects on economics, markets, and quantitiative analysis.\n\n\n\nDo Central Bank Statements Move Makrets?\n\n\n\n\nDelta Point is my personal blog that I created while working on a university project analysing the relationship between the tone of Federal Reserve communications and financial markets. I’m planning to use this blog to share my findings from various interesting topics of the sector, and hopefully spark some interesting discussions. If you have any questions or suggestions, feel free to reach out! Thanks for visitting Delta Point."
+    "text": "Delta One Research\n    Markets · Macro · Data Science"
   },
   {
     "objectID": "index.html#featured-post",
     "href": "index.html#featured-post",
     "title": "Home",
-    "section": "",
-    "text": "Do Central Bank Statements Move Makrets?"
+    "section": "Featured Post",
+    "text": "Featured Post\n\nDo Central Bank Statements Move Makrets?"
   },
   {
     "objectID": "index.html#what-this-site-is-about",
     "href": "index.html#what-this-site-is-about",
     "title": "Home",
+    "section": "What this site is about",
+    "text": "What this site is about\nDelta Point is my personal blog that I created while working on a university project analysing the relationship between the tone of Federal Reserve communications and financial markets. I’m planning to use this blog to share my findings from various interesting topics of the sector, and hopefully spark some interesting discussions. If you have any questions or suggestions, feel free to reach out! Thanks for visitting Delta Point."
+  },
+  {
+    "objectID": "posts.html",
+    "href": "posts.html",
+    "title": "Posts",
     "section": "",
-    "text": "Delta Point is my personal blog that I created while working on a university project analysing the relationship between the tone of Federal Reserve communications and financial markets. I’m planning to use this blog to share my findings from various interesting topics of the sector, and hopefully spark some interesting discussions. If you have any questions or suggestions, feel free to reach out! Thanks for visitting Delta Point."
+    "text": "Delta One Research\n    Markets · Macro · Data Science\n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDo Central Bank Statements Move Markets?\n\n\n\n\n\n\n\n\nApr 12, 2026\n\n\nDavid Papinashvili\n\n\n\n\n\nNo matching items"
   }
 ]

@@ -3,18 +3,45 @@ project:
   output-dir: docs
 
 website:
-  title: "Delta Point"
-  navbar:
+  title: "Delta One Research"
+  navbar: 
+    title: false
+    background: "#0b0f19"
+    foreground: "#f5f5f5"
+    collapse-bellow: lg
     left:
-      - href: index.qmd
-        text: Home
-      - href: about.qmd
-        text: About
-      - href: posts/fed-tone-and-markets.qmd
-        text: First Post
+      - text: "Home"
+        href: index.qmd
+      - text: "Posts"
+        href: posts.qmd
+      - text: "About"
+        href: about.qmd
+    tools:
+      - icon: "github"
+        href: https://github.com/sfire7
+      - icon: "linkedin"
+        href: https://www.linkedin.com/in/davidpapinashvili
+  page-footer: 
+    left: "© 2026 Delta One Research"
+    right: 
+      - text: "GitHub"
+        href: https://github.com/sfire7
+      - text: "LinkedIn"
+        href: https://www.linkedin.com/in/davidpapinashvili
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
-    toc: true
+    theme: 
+      - lux
+      - styles.scss
+    include-before-body: _brand.html
+    toc: false
+    toc-location: right
+    code-copy: true
+    code-fold: false
+    smooth-scroll: true
+    link-external-icon: true
+    link-external_newwindow: true
+
+
+ 

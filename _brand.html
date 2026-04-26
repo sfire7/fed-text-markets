@@ -1,0 +1,17 @@
+<div class="brand-strip">
+  <div class="brand-strip-inner">
+    <a href="/" class="brand-name">Delta One Research</a>
+    <span class="brand-tagline">Markets · Macro · Data Science</span>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const brand = document.querySelector(".brand-strip");
+    const navbar = document.querySelector("nav.navbar");
+
+    if (brand && navbar) {
+      navbar.parentNode.insertBefore(brand, navbar);
+    }
+  });
+</script>

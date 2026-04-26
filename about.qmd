@@ -1,8 +1,8 @@
 ---
 title: "About"
+page-layout: full
+toc: false
 ---
-
-# About
 
 I'm a Business Economics student interested in financial markets, macroeconomics, and data-driven analysis.
 
