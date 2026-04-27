@@ -2,12 +2,12 @@ import pandas as pd
 from pathlib import Path
 
 HAWKISH = [
-    "inflation", "inflationary", "inflation expectations", "price stability",
-    "tightening", "tighten", "tightened", "tightens", "firm", "strong", "robust", "solid", "strengthening", "strengthen", "elevated", "elevate", "elevating", "elevates", "persistent", "persistently", "persistence", "strong", "further", "upside", "pressures"
+    "inflation", "inflationary", "price stability",
+    "tightening", "tighten", "tightened", "tightens", "firm", "strong", "robust", "solid", "strengthening", "strengthen", "elevated", "elevate", "elevating", "elevates", "persistent", "persistently", "persistence", "further", "upside", "pressures"
 ]
 
 DOVISH = [
-    "slowdown", "easing", "weaker", "moderation", "downside", "softening", "uncertainty", "decline", "accomodative", "slowing", 
+    "slowdown", "easing", "weaker", "moderation", "downside", "softening", "uncertainty", "decline", "accommodative", "slowing", 
 ]
 
 def count_words(text, word_list):
