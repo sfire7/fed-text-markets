@@ -16,7 +16,7 @@
   {
     "objectID": "posts/fed-tone-and-markets.html",
     "href": "posts/fed-tone-and-markets.html",
-    "title": "Do Central Bank Statements Move Markets?",
+    "title": "Reading the Fed: A Text-Based Analysis of FOMC Statements and Market Reactions",
     "section": "",
     "text": "Delta One Research\n    Markets · Macro · Data Science"
   },
@@ -30,28 +30,28 @@
   {
     "objectID": "posts/fed-tone-and-markets.html#tone-over-time",
     "href": "posts/fed-tone-and-markets.html#tone-over-time",
-    "title": "Do Central Bank Statements Move Markets?",
+    "title": "Reading the Fed: A Text-Based Analysis of FOMC Statements and Market Reactions",
     "section": "Tone over time",
     "text": "Tone over time"
   },
   {
     "objectID": "posts/fed-tone-and-markets.html#baseline-tone-and-2y-yield-change",
     "href": "posts/fed-tone-and-markets.html#baseline-tone-and-2y-yield-change",
-    "title": "Do Central Bank Statements Move Markets?",
+    "title": "Reading the Fed: A Text-Based Analysis of FOMC Statements and Market Reactions",
     "section": "Baseline tone and 2Y yield change",
     "text": "Baseline tone and 2Y yield change"
   },
   {
     "objectID": "posts/fed-tone-and-markets.html#baseline-tone-and-sp-500-return",
     "href": "posts/fed-tone-and-markets.html#baseline-tone-and-sp-500-return",
-    "title": "Do Central Bank Statements Move Markets?",
+    "title": "Reading the Fed: A Text-Based Analysis of FOMC Statements and Market Reactions",
     "section": "Baseline tone and S&P 500 return",
     "text": "Baseline tone and S&P 500 return"
   },
   {
     "objectID": "posts/fed-tone-and-markets.html#baseline-tone-and-usd-index-change",
     "href": "posts/fed-tone-and-markets.html#baseline-tone-and-usd-index-change",
-    "title": "Do Central Bank Statements Move Markets?",
+    "title": "Reading the Fed: A Text-Based Analysis of FOMC Statements and Market Reactions",
     "section": "Baseline tone and USD index change",
     "text": "Baseline tone and USD index change"
   },
@@ -74,13 +74,62 @@
     "href": "index.html#what-this-site-is-about",
     "title": "Home",
     "section": "What this site is about",
-    "text": "What this site is about\nDelta Point is my personal blog that I created while working on a university project analysing the relationship between the tone of Federal Reserve communications and financial markets. I’m planning to use this blog to share my findings from various interesting topics of the sector, and hopefully spark some interesting discussions. If you have any questions or suggestions, feel free to reach out! Thanks for visitting Delta Point."
+    "text": "What this site is about\nDelta Point is my personal blog that I created while working on a university project analysing the relationship between the tone of Federal Reserve communications and financial markets. I’m planning to use this blog to share my findings from various interesting topics of the sector, and hopefully spark some interesting discussions. If you have any questions or suggestions, feel free to reach out! Thanks for visiting Delta One Research."
   },
   {
     "objectID": "posts.html",
     "href": "posts.html",
     "title": "Posts",
     "section": "",
-    "text": "Delta One Research\n    Markets · Macro · Data Science\n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDo Central Bank Statements Move Markets?\n\n\n\n\n\n\n\n\nApr 12, 2026\n\n\nDavid Papinashvili\n\n\n\n\n\nNo matching items"
+    "text": "Delta One Research\n    Markets · Macro · Data Science\n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nReading the Fed: A Text-Based Analysis of FOMC Statements and Market Reactions\n\n\n\n\n\n\n\n\nApr 12, 2026\n\n\nDavid Papinashvili\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/fed-tone-and-markets.html#introduction",
+    "href": "posts/fed-tone-and-markets.html#introduction",
+    "title": "Reading the Fed: A Text-Based Analysis of FOMC Statements and Market Reactions",
+    "section": "Introduction",
+    "text": "Introduction\nFinancial markets react not only to interest rate decisions, but also to the language used by central banks. The Federal Open Market Committee releases statements after policy meetings, and these statements can shape expectations about inflation, growth, and future interest rates.\nThis project investigates whether the tone of FOMC statements is associated with short-run movements in financial markets. I use Python to scrape FOMC statement text, construct a dictionary-based hawkish/dovish tone score, merge this with daily market data, and examine the relationship between statement tone and three market variables: the US 2-year Treasury yield, the S&P 500, and the US dollar index.\nThe aim is not to build a trading model. Instead, the project tests whether a simple text-based measure of central bank communication contains information that appears in market reactions."
+  },
+  {
+    "objectID": "posts/fed-tone-and-markets.html#data",
+    "href": "posts/fed-tone-and-markets.html#data",
+    "title": "Reading the Fed: A Text-Based Analysis of FOMC Statements and Market Reactions",
+    "section": "Data",
+    "text": "Data\nThe project combines two types of data. The first dataset contains FOMC statement text scraped from the Federal Reserve website. Each statement is treated as a policy communication event. The second dataset contains daily financial market data, including the US 2-year Treasury yield, the S&P 500, and the US dollar index.\nAfter cleaning the statement text and preparing the market data, I merged both datasets by date. The final analysis dataset contains one row per FOMC statement and links the tone of that statement to same-date daily market movements.\n\n\n\nVariable\nDefinition\n\n\n\n\ntone_score\nHawkish term count minus dovish term count\n\n\ntone_score_norm\nTone score divided by statement word count\n\n\nus2yield_change\nDaily change in the US 2-year Treasury yield\n\n\nsp500_return\nDaily percentage return of the S&P 500\n\n\nusd_index_change\nDaily percentage change in the US dollar index"
+  },
+  {
+    "objectID": "posts/fed-tone-and-markets.html#methodology",
+    "href": "posts/fed-tone-and-markets.html#methodology",
+    "title": "Reading the Fed: A Text-Based Analysis of FOMC Statements and Market Reactions",
+    "section": "Methodology",
+    "text": "Methodology\nThe text analysis uses a dictionary-based approach. I created lists of hawkish and dovish monetary-policy terms. Hawkish terms include words and phrases related to inflation pressure, policy tightening, and economic strength. Dovish terms include words and phrases related to slowing growth, easier policy, uncertainty, and financial stress.\nThe raw tone score is calculated as:\n\\[\n\\text{Tone Score} = \\text{Hawkish Count} - \\text{Dovish Count}\\\n\\]\nBecause FOMC statements vary in length, I also calculated a normalised score:\n\\[\n\\text{Normalised Tone Score} = \\frac{\\text{Tone Score}}{\\text{Word Count}}\n\\]\nThis makes the tone measure more comparable across statements.\nAs a robustness check, I compared a baseline tone dictionary with an expanded dictionary. The correlation between the two normalised tone scores was approximately 0.96, suggesting that the main tone pattern is not highly sensitive to the exact dictionary choice.\nRows loaded: 43\nColumns found: ['date', 'url', 'title', 'statement_text', 'clean_text', 'word_count']\n\nExcluded non-standard statements:\n         date                                              title                                                url\n37 2025-08-22  Federal Reserve Board - Federal Open Market Co...  https://www.federalreserve.gov/newsevents/pres...\nRows after filtering: 42\n\nDictionary comparison:\n  dictionary  hawkish_terms  dovish_terms  mean_tone_score_norm  std_tone_score_norm  min_tone_score_norm  max_tone_score_norm  correlation_with_expanded\n0   baseline             20            10              0.031778             0.007324             0.017677             0.042857                   0.955405\n1   expanded             27            20              0.027656             0.010267             0.010101             0.045714                   1.000000"
+  },
+  {
+    "objectID": "posts/fed-tone-and-markets.html#results-tone-over-time",
+    "href": "posts/fed-tone-and-markets.html#results-tone-over-time",
+    "title": "Reading the Fed: A Text-Based Analysis of FOMC Statements and Market Reactions",
+    "section": "Results: tone over time",
+    "text": "Results: tone over time\nThe time-series plot shows that the tone score varies across FOMC meetings. Some statements contain a higher concentration of hawkish-coded language, especially where inflation pressure, policy firming, or strong labour market conditions are discussed.\nHowever, the tone score should not be interpreted as a complete measure of the Federal Reserve’s policy stance. For example, a statement may mention inflation frequently while still describing an accommodative policy environment. The score measures language frequency, not the full policy position."
+  },
+  {
+    "objectID": "posts/fed-tone-and-markets.html#results-market-reactions",
+    "href": "posts/fed-tone-and-markets.html#results-market-reactions",
+    "title": "Reading the Fed: A Text-Based Analysis of FOMC Statements and Market Reactions",
+    "section": "Results: market reactions",
+    "text": "Results: market reactions\nThe clearest relationship appears between the normalised tone score and changes in the US 2-year Treasury yield. This is economically intuitive because the 2-year yield is sensitive to expectations about future monetary policy.\nA more hawkish statement may lead investors to expect higher future interest rates, which can push short-term yields upward. The relationship is not perfect, but it is stronger than the relationships observed for the S&P 500 and the US dollar index.\n\nS&P 500\nThe relationship between FOMC tone and S&P 500 returns is weaker. This is not surprising because equities respond to several channels at once. Hawkish language may be negative for equities through higher discount rates, but it may also reflect a stronger economy, which can support earnings expectations.\n\n\n\n\nUSD\nThe relationship with the US dollar index is also weaker. Exchange rates are affected by US monetary policy expectations, but also by foreign interest rates, global risk sentiment, and international capital flows. A simple FOMC tone score is therefore unlikely to explain most dollar movements."
+  },
+  {
+    "objectID": "posts/fed-tone-and-markets.html#limitations",
+    "href": "posts/fed-tone-and-markets.html#limitations",
+    "title": "Reading the Fed: A Text-Based Analysis of FOMC Statements and Market Reactions",
+    "section": "Limitations",
+    "text": "Limitations\nThere are several limitations to this analysis.\nFirst, the tone score is dictionary-based. It counts words and phrases but does not fully understand context. For example, the word “inflation” may appear in both hawkish and dovish contexts depending on whether the statement says inflation is rising, falling, or expected to moderate.\nSecond, the sample size is relatively small because FOMC statements are event-based rather than daily observations.\nThird, the market reaction variables use daily data. This means the results may include other information released on the same day, including the policy rate decision, press conference, projections, or broader market news. Therefore, the regressions should be interpreted as associations rather than causal estimates.\nFourth, the project does not control for other macroeconomic variables, monetary policy surprises, or market expectations before the announcement."
+  },
+  {
+    "objectID": "posts/fed-tone-and-markets.html#conclusion",
+    "href": "posts/fed-tone-and-markets.html#conclusion",
+    "title": "Reading the Fed: A Text-Based Analysis of FOMC Statements and Market Reactions",
+    "section": "Conclusion",
+    "text": "Conclusion\nThis project finds that FOMC statement tone appears most closely related to changes in the US 2-year Treasury yield. This result is consistent with the idea that short-term yields are especially sensitive to central bank communication and expectations about future monetary policy.\nThe evidence is weaker for the S&P 500 and the US dollar index. This likely reflects the fact that equities and exchange rates are influenced by a broader set of forces than FOMC statement language alone.\nOverall, the project shows that even a simple text-based approach can extract useful information from central bank communication. At the same time, the results should be interpreted cautiously because the tone measure is simple and market reactions are affected by many factors beyond statement language."
   }
 ]

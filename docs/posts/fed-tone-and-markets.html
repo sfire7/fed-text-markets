@@ -9,7 +9,7 @@
 <meta name="author" content="David Papinashvili">
 <meta name="dcterms.date" content="2026-04-12">
 
-<title>Do Central Bank Statements Move Markets? – Delta One Research</title>
+<title>Reading the Fed: A Text-Based Analysis of FOMC Statements and Market Reactions – Delta One Research</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -24,6 +24,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -74,6 +109,35 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -120,20 +184,19 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#research-question" id="toc-research-question" class="nav-link" data-scroll-target="#research-question">Research Question</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
-  <li><a href="#method" id="toc-method" class="nav-link" data-scroll-target="#method">Method</a></li>
-  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a>
+  <li><a href="#research-question" id="toc-research-question" class="nav-link" data-scroll-target="#research-question">Research Question</a>
   <ul class="collapse">
-  <li><a href="#tone-distribution" id="toc-tone-distribution" class="nav-link" data-scroll-target="#tone-distribution">Tone distribution</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology">Methodology</a></li>
+  <li><a href="#results-tone-over-time" id="toc-results-tone-over-time" class="nav-link" data-scroll-target="#results-tone-over-time">Results: tone over time</a></li>
+  <li><a href="#results-market-reactions" id="toc-results-market-reactions" class="nav-link" data-scroll-target="#results-market-reactions">Results: market reactions</a></li>
+  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   <li><a href="#tone-over-time" id="toc-tone-over-time" class="nav-link" data-scroll-target="#tone-over-time">Tone over time</a></li>
   <li><a href="#baseline-tone-and-2y-yield-change" id="toc-baseline-tone-and-2y-yield-change" class="nav-link" data-scroll-target="#baseline-tone-and-2y-yield-change">Baseline tone and 2Y yield change</a></li>
   <li><a href="#baseline-tone-and-sp-500-return" id="toc-baseline-tone-and-sp-500-return" class="nav-link" data-scroll-target="#baseline-tone-and-sp-500-return">Baseline tone and S&amp;P 500 return</a></li>
   <li><a href="#baseline-tone-and-usd-index-change" id="toc-baseline-tone-and-usd-index-change" class="nav-link" data-scroll-target="#baseline-tone-and-usd-index-change">Baseline tone and USD index change</a></li>
   </ul></li>
-  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation">Interpretation</a></li>
-  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
     </div>
@@ -159,7 +222,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Do Central Bank Statements Move Markets?</h1>
+<h1 class="title">Reading the Fed: A Text-Based Analysis of FOMC Statements and Market Reactions</h1>
 </div>
 
 
@@ -188,28 +251,113 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>Central bank communication matters because markets respond not only to policy decisions, but also to how policymakers describe inflation, growth, and risks.</p>
-<p>This post studies whether the tone of Federal Reserve policy statements is associated with short-term moves in Treasury yields, the US dollar, and equities.</p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Financial markets react not only to interest rate decisions, but also to the language used by central banks. The Federal Open Market Committee releases statements after policy meetings, and these statements can shape expectations about inflation, growth, and future interest rates.</p>
+<p>This project investigates whether the tone of FOMC statements is associated with short-run movements in financial markets. I use Python to scrape FOMC statement text, construct a dictionary-based hawkish/dovish tone score, merge this with daily market data, and examine the relationship between statement tone and three market variables: the US 2-year Treasury yield, the S&amp;P 500, and the US dollar index.</p>
+<p>The aim is not to build a trading model. Instead, the project tests whether a simple text-based measure of central bank communication contains information that appears in market reactions.</p>
 </section>
 <section id="research-question" class="level1">
 <h1>Research Question</h1>
 <p>Do more hawkish Federal Reserve statements correspond to changes in short-term market reactions?</p>
+<section id="data" class="level2">
+<h2 class="anchored" data-anchor-id="data">Data</h2>
+<p>The project combines two types of data. The first dataset contains FOMC statement text scraped from the Federal Reserve website. Each statement is treated as a policy communication event. The second dataset contains daily financial market data, including the US 2-year Treasury yield, the S&amp;P 500, and the US dollar index.</p>
+<p>After cleaning the statement text and preparing the market data, I merged both datasets by date. The final analysis dataset contains one row per FOMC statement and links the tone of that statement to same-date daily market movements.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>tone_score</code></td>
+<td>Hawkish term count minus dovish term count</td>
+</tr>
+<tr class="even">
+<td><code>tone_score_norm</code></td>
+<td>Tone score divided by statement word count</td>
+</tr>
+<tr class="odd">
+<td><code>us2yield_change</code></td>
+<td>Daily change in the US 2-year Treasury yield</td>
+</tr>
+<tr class="even">
+<td><code>sp500_return</code></td>
+<td>Daily percentage return of the S&amp;P 500</td>
+</tr>
+<tr class="odd">
+<td><code>usd_index_change</code></td>
+<td>Daily percentage change in the US dollar index</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="data" class="level1">
-<h1>Data</h1>
-<p>This project combines: - Federal Reserve policy statements - Daily market data for 2-year Treasury yields, the S&amp;P 500, and a US dollar index</p>
+<section id="methodology" class="level2">
+<h2 class="anchored" data-anchor-id="methodology">Methodology</h2>
+<p>The text analysis uses a dictionary-based approach. I created lists of hawkish and dovish monetary-policy terms. Hawkish terms include words and phrases related to inflation pressure, policy tightening, and economic strength. Dovish terms include words and phrases related to slowing growth, easier policy, uncertainty, and financial stress.</p>
+<p>The raw tone score is calculated as:</p>
+<p><span class="math display">\[
+\text{Tone Score} = \text{Hawkish Count} - \text{Dovish Count}\
+\]</span></p>
+<p>Because FOMC statements vary in length, I also calculated a normalised score:</p>
+<p><span class="math display">\[
+\text{Normalised Tone Score} = \frac{\text{Tone Score}}{\text{Word Count}}
+\]</span></p>
+<p>This makes the tone measure more comparable across statements.</p>
+<p><strong><em>As a robustness check, I compared a baseline tone dictionary with an expanded dictionary. The correlation between the two normalised tone scores was approximately 0.96, suggesting that the main tone pattern is not highly sensitive to the exact dictionary choice.</em></strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rows</span> loaded: 43</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Columns</span> found: [<span class="st">'date'</span>, <span class="st">'url'</span>, <span class="st">'title'</span>, <span class="st">'statement_text'</span>, <span class="st">'clean_text'</span>, <span class="st">'word_count'</span>]</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Excluded</span> non-standard statements:</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>         <span class="fu">date</span>                                              title                                                url</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">37</span> 2025-08-22  Federal Reserve Board <span class="at">-</span> Federal Open Market Co...  https://www.federalreserve.gov/newsevents/pres...</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Rows</span> after filtering: 42</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ex">Dictionary</span> comparison:</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="ex">dictionary</span>  hawkish_terms  dovish_terms  mean_tone_score_norm  std_tone_score_norm  min_tone_score_norm  max_tone_score_norm  correlation_with_expanded</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ex">0</span>   baseline             20            10              0.031778             0.007324             0.017677             0.042857                   0.955405</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span>   expanded             27            20              0.027656             0.010267             0.010101             0.045714                   1.000000</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="method" class="level1">
-<h1>Method</h1>
-<p>I scraped Federal Reserve statements, cleaned the text, built a simple hawkish-dovish tone score, and merged statement dates with daily market movements.</p>
-<p>I then estimated both: - a baseline tone-level specification - a tone-change specification comparing each statement to the previous one</p>
+<section id="results-tone-over-time" class="level2">
+<h2 class="anchored" data-anchor-id="results-tone-over-time">Results: tone over time</h2>
+<p>The time-series plot shows that the tone score varies across FOMC meetings. Some statements contain a higher concentration of hawkish-coded language, especially where inflation pressure, policy firming, or strong labour market conditions are discussed.</p>
+<p>However, the tone score should not be interpreted as a complete measure of the Federal Reserve’s policy stance. For example, a statement may mention inflation frequently while still describing an accommodative policy environment. The score measures language frequency, not the full policy position.</p>
+<iframe src="../output/interactive_figures/tone_score_over_time.html" width="100%" height="560" style="border: none;">
+</iframe>
 </section>
-<section id="results" class="level1">
-<h1>Results</h1>
-<section id="tone-distribution" class="level2">
-<h2 class="anchored" data-anchor-id="tone-distribution">Tone distribution</h2>
+<section id="results-market-reactions" class="level2">
+<h2 class="anchored" data-anchor-id="results-market-reactions">Results: market reactions</h2>
+<p>The clearest relationship appears between the normalised tone score and changes in the US 2-year Treasury yield. This is economically intuitive because the 2-year yield is sensitive to expectations about future monetary policy.</p>
+<p>A more hawkish statement may lead investors to expect higher future interest rates, which can push short-term yields upward. The relationship is not perfect, but it is stronger than the relationships observed for the S&amp;P 500 and the US dollar index.</p>
+<section id="sp-500" class="level4">
+<h4 class="anchored" data-anchor-id="sp-500">S&amp;P 500</h4>
+<p><strong><em>The relationship between FOMC tone and S&amp;P 500 returns is weaker. This is not surprising because equities respond to several channels at once. Hawkish language may be negative for equities through higher discount rates, but it may also reflect a stronger economy, which can support earnings expectations.</em></strong></p>
+<iframe src="../output/interactive_figures/tone_vs_sp500_fit.html" width="100%" height="560" style="border: none;">
+</iframe>
+</section>
+<section id="usd" class="level4">
+<h4 class="anchored" data-anchor-id="usd">USD</h4>
+<p><strong><em>The relationship with the US dollar index is also weaker. Exchange rates are affected by US monetary policy expectations, but also by foreign interest rates, global risk sentiment, and international capital flows. A simple FOMC tone score is therefore unlikely to explain most dollar movements.</em></strong></p>
+<iframe src="../output/interactive_figures/tone_vs_usd_fit.html" width="100%" height="560" style="border: none;">
+</iframe>
+</section>
+</section>
+<section id="limitations" class="level2">
+<h2 class="anchored" data-anchor-id="limitations">Limitations</h2>
+<p>There are several limitations to this analysis.</p>
+<p>First, the tone score is dictionary-based. It counts words and phrases but does not fully understand context. For example, the word “inflation” may appear in both hawkish and dovish contexts depending on whether the statement says inflation is rising, falling, or expected to moderate.</p>
+<p>Second, the sample size is relatively small because FOMC statements are event-based rather than daily observations.</p>
+<p>Third, the market reaction variables use daily data. This means the results may include other information released on the same day, including the policy rate decision, press conference, projections, or broader market news. Therefore, the regressions should be interpreted as associations rather than causal estimates.</p>
+<p>Fourth, the project does not control for other macroeconomic variables, monetary policy surprises, or market expectations before the announcement.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>This project finds that FOMC statement tone appears most closely related to changes in the US 2-year Treasury yield. This result is consistent with the idea that short-term yields are especially sensitive to central bank communication and expectations about future monetary policy.</p>
+<p>The evidence is weaker for the S&amp;P 500 and the US dollar index. This likely reflects the fact that equities and exchange rates are influenced by a broader set of forces than FOMC statement language alone.</p>
+<p>Overall, the project shows that even a simple text-based approach can extract useful information from central bank communication. At the same time, the results should be interpreted cautiously because the tone measure is simple and market reactions are affected by many factors beyond statement language.</p>
 <iframe src="../output/interactive_figures/tone_score_distribution.html" width="100%" height="560" style="border: none;">
 </iframe>
 </section>
@@ -232,23 +380,9 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="baseline-tone-and-usd-index-change">Baseline tone and USD index change</h2>
 <iframe src="../output/interactive_figures/tone_vs_usd_fit.html" width="100%" height="560" style="border: none;">
 </iframe>
-</section>
-</section>
-<section id="interpretation" class="level1">
-<h1>Interpretation</h1>
-<p>The baseline specification produces the clearest relationship for 2-year Treasury yield changes, although the sign is negative rather than expected. A change-based tone specification produces a more economically intuitive sign, but weaker statistical significance.</p>
-<p>This suggests that statement wording may contain information relevant for short-term rates, but that a simple dictionary-based text measure remains an imperfect proxy for policy surprise.</p>
-</section>
-<section id="limitations" class="level1">
-<h1>Limitations</h1>
-<p>This project has several limitations: - the text measure is deliberately simple - FOMC statements contain repeated boilerplate - same-day market reactions may reflect broader interpretation than statement wording alone - the sample size is relatively small</p>
-</section>
-<section id="conclusion" class="level1">
-<h1>Conclusion</h1>
-<p>A simple text-based measure of FOMC statement tone appears to relate most clearly to short-term Treasury yield reactions, while the evidence for equities and the dollar is weaker.</p>
-<p>The comparison between level-based and change-based specifications suggests that markets may respond more to changes in language than to the absolute level of tone.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
