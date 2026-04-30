@@ -1,6 +1,8 @@
+```text
 pandas
 numpy
 matplotlib
+plotly
 requests
 beautifulsoup4
 lxml
