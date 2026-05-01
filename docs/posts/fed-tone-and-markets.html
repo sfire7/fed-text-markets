@@ -168,7 +168,7 @@ window.Quarto = {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
-    <a href="https://github.com/sfire7" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://github.com/davidpapinashvili" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
     <a href="https://www.linkedin.com/in/davidpapinashvili" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
 </div>
       </div> <!-- /container-fluid -->
@@ -254,15 +254,15 @@ window.Quarto = {
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>Financial markets react not only to interest rate decisions, but also to the language used by central banks. The Federal Open Market Committee releases statements after policy meetings, and these statements can shape expectations about inflation, growth, and future interest rates.</p>
-<p>This project investigates whether the tone of FOMC statements is associated with short-run movements in financial markets. I use Python to scrape FOMC statement text, construct a dictionary-based hawkish/dovish tone score, merge this with daily market data, and examine the relationship between statement tone and three market variables: the US 2-year Treasury yield, the S&amp;P 500, and the US dollar index.</p>
-<p>The aim is not to build a trading model. Instead, the project tests whether a simple text-based measure of central bank communication contains information that appears in market reactions.</p>
+<p>My blog investigates whether the tone used in FOMC statements correlates with short-term movements in financial markets. I used Python to scrape FOMC statement text, construct a dictionary-based hawkish/dovish tone score, merge it with daily market data, and examine the relationship between statement tone and three market variables: the US 2-year Treasury yield, the S&amp;P 500, and the US dollar index.</p>
+<p>The main objective of this project was testing whether a simple text-based measure of central bank communication contains information that appears in market reactions.</p>
 </section>
 <section id="research-question" class="level1">
 <h1>Research Question</h1>
 <p>Do more hawkish Federal Reserve statements correspond to changes in short-term market reactions?</p>
 <section id="data" class="level2">
 <h2 class="anchored" data-anchor-id="data">Data</h2>
-<p>The project combines two types of data. The first dataset contains FOMC statement text scraped from the Federal Reserve website. Each statement is treated as a policy communication event. The second dataset contains daily financial market data, including the US 2-year Treasury yield, the S&amp;P 500, and the US dollar index.</p>
+<p>The project combines two types of data. First dataset consists of FOMC statement text scraped from the <a href="https://fred.stlouisfed.org">Federal Reserve website</a>. Each statement is treated as a policy communication event. The second dataset was manually downloaded as a raw .csv file and contains daily financial market data, including the US 2-year Treasury yield, the S&amp;P 500, and the US dollar index.</p>
 <p>After cleaning the statement text and preparing the market data, I merged both datasets by date. The final analysis dataset contains one row per FOMC statement and links the tone of that statement to same-date daily market movements.</p>
 <table class="caption-top table">
 <thead>
@@ -800,7 +800,7 @@ window.Quarto = {
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="https://github.com/sfire7">
+    <a class="nav-link" href="https://github.com/davidpapinashvili">
 <p>GitHub</p>
 </a>
   </li>  

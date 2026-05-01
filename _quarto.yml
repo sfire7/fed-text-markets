@@ -18,14 +18,14 @@ website:
         href: about.qmd
     tools:
       - icon: "github"
-        href: https://github.com/sfire7
+        href: https://github.com/davidpapinashvili
       - icon: "linkedin"
         href: https://www.linkedin.com/in/davidpapinashvili
   page-footer: 
     left: "© 2026 Delta One Research"
     right: 
       - text: "GitHub"
-        href: https://github.com/sfire7
+        href: https://github.com/davidpapinashvili
       - text: "LinkedIn"
         href: https://www.linkedin.com/in/davidpapinashvili
 

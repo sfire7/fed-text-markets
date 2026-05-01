@@ -11,9 +11,9 @@ format:
 
 Financial markets react not only to interest rate decisions, but also to the language used by central banks. The Federal Open Market Committee releases statements after policy meetings, and these statements can shape expectations about inflation, growth, and future interest rates.
 
-This project investigates whether the tone of FOMC statements is associated with short-run movements in financial markets. I use Python to scrape FOMC statement text, construct a dictionary-based hawkish/dovish tone score, merge this with daily market data, and examine the relationship between statement tone and three market variables: the US 2-year Treasury yield, the S&P 500, and the US dollar index.
+My blog investigates whether the tone used in FOMC statements correlates with short-term movements in financial markets. I used Python to scrape FOMC statement text, construct a dictionary-based hawkish/dovish tone score, merge it with daily market data, and examine the relationship between statement tone and three market variables: the US 2-year Treasury yield, the S&P 500, and the US dollar index.
 
-The aim is not to build a trading model. Instead, the project tests whether a simple text-based measure of central bank communication contains information that appears in market reactions.
+The main objective of this project was testing whether a simple text-based measure of central bank communication contains information that appears in market reactions. 
 
 # Research Question
 
@@ -21,7 +21,7 @@ Do more hawkish Federal Reserve statements correspond to changes in short-term m
 
 ## Data
 
-The project combines two types of data. The first dataset contains FOMC statement text scraped from the Federal Reserve website. Each statement is treated as a policy communication event. The second dataset contains daily financial market data, including the US 2-year Treasury yield, the S&P 500, and the US dollar index.
+The project combines two types of data. First dataset consists of FOMC statement text scraped from the [Federal Reserve website](https://fred.stlouisfed.org). Each statement is treated as a policy communication event. The second dataset was manually downloaded as a raw .csv file and contains daily financial market data, including the US 2-year Treasury yield, the S&P 500, and the US dollar index.
 
 After cleaning the statement text and preparing the market data, I merged both datasets by date. The final analysis dataset contains one row per FOMC statement and links the tone of that statement to same-date daily market movements.
 
