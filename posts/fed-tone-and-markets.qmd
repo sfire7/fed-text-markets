@@ -33,6 +33,21 @@ This project tests three simple hypotheses.
 
 **H3:** More hawkish FOMC statement tone is associated with a stronger US dollar, although the relationship may be weaker because exchange rates are also affected by foreign interest rates, global risk sentiment, and capital flows.
 
+## Data
+
+The project combines two types of data. First dataset consists of FOMC statement text scraped from the [Federal Reserve's official website](https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm){target="_blank"}. Each statement is treated as a policy communication event. The second dataset was manually downloaded as a raw .csv file from [FRED](https://fred.stlouisfed.org){target="_blank"} and contains daily financial market data, including the US 2-year Treasury yield, the S&P 500, and the US dollar index.
+
+After cleaning the statement text and preparing the market data, I merged both datasets by date. The final analysis dataset contains one row per FOMC statement and links the tone of that statement to same-date daily market movements.
+
+| Variable | Definition |
+|---|---|
+| `tone_score` | Hawkish term count minus dovish term count |
+| `tone_score_norm` | Tone score divided by statement word count |
+| `us2yield_change` | Daily change in the US 2-year Treasury yield |
+| `sp500_return` | Daily percentage return of the S&P 500 |
+| `usd_index_change` | Daily percentage change in the US dollar index |
+
+
 ## Project workflow
 
 The project was organised as a reproducible Python workflow. The raw text data and market data were stored separately, cleaned through individual scripts, and then merged into a final analysis dataset.
@@ -51,20 +66,6 @@ The project was organised as a reproducible Python workflow. The raw text data a
 This structure separates data collection, cleaning, scoring, merging, analysis, and visualisation. This makes the project easier to reproduce and reduces the risk of manually changing the final dataset.
 
 You can visit my [GitHub repository](https://github.com/davidpapinashvili/fed-text-markets){target="_blank"} for this project, where you will find the reproducible Python scripts.
-
-## Data
-
-The project combines two types of data. First dataset consists of FOMC statement text scraped from the [Federal Reserve's official website](https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm){target="_blank"}. Each statement is treated as a policy communication event. The second dataset was manually downloaded as a raw .csv file from [FRED](https://fred.stlouisfed.org){TARGET="_blank"} and contains daily financial market data, including the US 2-year Treasury yield, the S&P 500, and the US dollar index.
-
-After cleaning the statement text and preparing the market data, I merged both datasets by date. The final analysis dataset contains one row per FOMC statement and links the tone of that statement to same-date daily market movements.
-
-| Variable | Definition |
-|---|---|
-| `tone_score` | Hawkish term count minus dovish term count |
-| `tone_score_norm` | Tone score divided by statement word count |
-| `us2yield_change` | Daily change in the US 2-year Treasury yield |
-| `sp500_return` | Daily percentage return of the S&P 500 |
-| `usd_index_change` | Daily percentage change in the US dollar index |
 
 ## Methodology
 
@@ -95,9 +96,20 @@ Dictionary comparison:
 
 ```
 
-## Output
+## Empirical model
 
-### Descriptive statistics
+To examine whether FOMC statement tone is associated with market reactions, I estimate a simple event-level regression:
+
+$$
+MarketReaction_i = \alpha + \beta Tone_i + \varepsilon_i
+$$
+
+where \(MarketReaction_i\) is the same-day movement in one market variable after FOMC statement \(i\), and \(Tone_i\) is the normalised hawkish-minus-dovish tone score.
+
+I estimate the model separately for the US 2-year Treasury yield, the S&P 500, and the US dollar index. I also repeat the analysis using the change in tone from the previous FOMC statement, because markets may respond more to shifts in communication than to the absolute level of hawkish language.
+
+
+## Descriptive statistics
 
 Before estimating relationships between tone and markets, I first examined the distribution of the main variables.
 
@@ -110,17 +122,7 @@ Before estimating relationships between tone and markets, I first examined the d
 
 The tone score varies meaningfully across statements, suggesting that FOMC language is not constant across meetings. Market reactions are also volatile, especially for equity returns. This supports the use of an event-based framework, but it also highlights the difficulty of explaining market movements with statement language alone.
 
-## Robustness check: tone changes
-
-A limitation of using the tone level is that markets may already expect the Federal Reserve to sound hawkish or dovish. Therefore, I also consider the change in tone from the previous FOMC statement:
-
-$$
-\Delta Tone_i = Tone_i - Tone_{i-1}
-$$
-
-This measure captures whether the statement became more hawkish or more dovish relative to the previous meeting. This is closer to the idea of a communication surprise, although it is still not a full measure of market expectations.
-
-If tone changes explain market reactions better than tone levels, this would suggest that markets respond more to shifts in communication than to the absolute level of hawkish language.
+## Results
 
 ### Results: regression analysis
 
@@ -186,6 +188,20 @@ However, the tone score should not be interpreted as a complete measure of the F
   height="560" 
   style="border: none;">
 </iframe>
+
+## Robustness checks
+
+### Robustness check: tone changes
+
+A limitation of using the tone level is that markets may already expect the Federal Reserve to sound hawkish or dovish. Therefore, I also consider the change in tone from the previous FOMC statement:
+
+$$
+\Delta Tone_i = Tone_i - Tone_{i-1}
+$$
+
+This measure captures whether the statement became more hawkish or more dovish relative to the previous meeting. This is closer to the idea of a communication surprise, although it is still not a full measure of market expectations.
+
+If tone changes explain market reactions better than tone levels, this would suggest that markets respond more to shifts in communication than to the absolute level of hawkish language.
 
 ## Limitations and critical evaluation
 
