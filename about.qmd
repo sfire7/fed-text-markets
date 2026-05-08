@@ -15,3 +15,4 @@ This website is a place for me to publish blog posts and projects combining econ
 - Data science in economics
 - Macro and policy analysis
 - Empirical projects
+
