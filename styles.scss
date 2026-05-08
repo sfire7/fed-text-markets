@@ -1,4 +1,4 @@
-/*-- scss:defaults --*/
+
 
 $body-bg: #f7f5f0;
 $body-color: #151515;
@@ -7,9 +7,8 @@ $link-color: #9b6b2f;
 $font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
 $headings-font-weight: 750;
 
-/*-- scss:rules --*/
 
-/* General */
+
 
 body {
   line-height: 1.7;
@@ -34,7 +33,7 @@ h2 {
   padding-bottom: 0.4rem;
 }
 
-/* Remove ugly page title spacing */
+
 
 .quarto-title {
   margin-top: 2rem;
@@ -46,7 +45,7 @@ h2 {
   letter-spacing: -0.05em;
 }
 
-/* Top brand strip */
+
 
 .brand-strip {
   width: 100%;
@@ -86,7 +85,7 @@ h2 {
   color: rgba(11, 15, 25, 0.75);
 }
 
-/* Navbar */
+
 
 .navbar {
   min-height: 82px;
@@ -118,7 +117,7 @@ h2 {
   color: #d7b377 !important;
 }
 
-/* Homepage hero */
+
 
 .hero {
   width: 100vw;
@@ -159,7 +158,7 @@ h2 {
   color: #d8d8d8;
 }
 
-/* Buttons */
+
 
 .button-row {
   display: flex;
@@ -197,13 +196,12 @@ h2 {
   color: #d7b377 !important;
 }
 
-/* Main content width */
+
 
 .page-columns .content {
   max-width: 900px;
 }
 
-/* Cards */
 
 .project-grid {
   display: grid;
@@ -230,7 +228,6 @@ h2 {
   color: #4a4a4a;
 }
 
-/* Blog listing */
 
 .quarto-listing .listing-title {
   font-weight: 750;
@@ -245,26 +242,22 @@ h2 {
   text-transform: none !important;
 }
 
-/* Code blocks */
 
 pre.sourceCode {
   border-radius: 14px;
 }
 
-/* Tables */
-
 table {
   font-size: 0.95rem;
 }
 
-/* Footer */
+
 
 .nav-footer {
   border-top: 1px solid rgba(0, 0, 0, 0.08);
   margin-top: 3rem;
 }
 
-/* Mobile */
 
 @media (max-width: 800px) {
   .project-grid {

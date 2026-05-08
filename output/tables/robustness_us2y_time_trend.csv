@@ -1,0 +1,4 @@
+model_name,dependent_variable,variable,coefficient,std_error,t_stat,p_value,r_squared,n_obs
+robustness_us2y_with_trend,us2yield_change,const,0.1040,0.0536,1.9415,0.0522,0.1293,41
+robustness_us2y_with_trend,us2yield_change,tone_score_norm,-4.4294,1.9828,-2.2340,0.0255,0.1293,41
+robustness_us2y_with_trend,us2yield_change,time_trend,0.0017,0.0076,0.2274,0.8201,0.1293,41
